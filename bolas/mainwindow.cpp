@@ -12,7 +12,6 @@
 #include <QJsonValue>
 #include <QDate>
 #include <QMimeData>
-
 #include <QMessageBox>
 
 
@@ -37,7 +36,7 @@ MainWindow::MainWindow(QWidget * parent ) : QMainWindow(parent){
 		setAcceptDrops(true);
 		
 		connect(temporizador,SIGNAL(timeout()),
-					this,SLOT(slotTemporizador()));	
+				this,SLOT(slotTemporizador()));	
 }
 
 void MainWindow::crearActions(){					
@@ -76,16 +75,16 @@ void MainWindow::crearActions(){
 
 void MainWindow::crearMenus() {
 
-		QMenu * menuDialogos = menuBar()->addMenu("Info");
-		menuDialogos->addAction(actionDTablaBolas);
-			menuDialogos->addAction(actionDControlBolas);
-		menuDialogos->addAction(actionDPosicionBolas);
-		menuDialogos->addAction(actionDTablaChoques);
-		menuDialogos->addAction(actionTemp);
+		QMenu * menuDialogos = menuBar() -> addMenu( "Info" );
+			menuDialogos -> addAction( actionDTablaBolas );
+			menuDialogos -> addAction( actionDControlBolas );
+			menuDialogos -> addAction( actionDPosicionBolas );
+			menuDialogos -> addAction( actionDTablaChoques );
+			menuDialogos -> addAction( actionTemp );
 		
 		QMenu * menuBolas = menuBar()->addMenu("Bolas");
-		for ( int i = 0 ; i < accionesBolas.size() ; i++ )
-			menuBolas->addAction(accionesBolas.at(i));
+			for ( int i = 0 ; i < accionesBolas.size() ; i++ )
+				menuBolas->addAction(accionesBolas.at(i));
 }
 
 
@@ -139,20 +138,19 @@ void MainWindow::slotTemporizador() {
 	   	 
 		bolaJugador -> mover( width(), height() );
 	  	 
-	 	for (int i=0; i< bolas.size();i++)  	 
-	 		for (int j=0; j< bolas.size();j++) 
-	 			if ( (i != j ) && bolas.at(i)->choca(bolas.at(j) )) {
+	 	for ( int i = 0 ; i < bolas.size() ; i++ )  	 
+	 		for ( int j = 0 ; j < bolas.size() ; j++ ) 
+	 			if (( i != j ) && bolas.at(i) -> choca( bolas.at(j) )) {
 	 				bolas.at(i)->vidas--;
 	 				bolas.at(j)->vidas--;
 	 				bolas.at(i)->choques[j]++;
 	 				bolas.at(j)->choques[i]++; 
 	 				bolas.at(i)->anyadirChoque(j);
 	 				bolas.at(j)->anyadirChoque(i); 								
-	 				
-	 		}
+	 			}
 	 	
 		for ( int i = 0 ; i < bolas.size() ; i++ )  	 	
-			if ( bolaJugador -> choca( bolas.at(i) ) )
+			if ( bolaJugador -> choca( bolas.at(i)))
 				bolaJugador -> vidas--;
 
 		update();
@@ -161,18 +159,21 @@ void MainWindow::slotTemporizador() {
 
 void MainWindow::keyPressEvent( QKeyEvent * evento ) {
 
-		int teclaPulsada = evento->key();
+		int teclaPulsada = evento -> key();
 		
 		switch (teclaPulsada) {
 			case Qt::Key_Up:
 					bolaJugador->velY -= 0.1  ;
 					break;
+					
 			case Qt::Key_Down:
 					bolaJugador->velY += 0.1  ;
 					break;
+					
 			case Qt::Key_Left:
 					bolaJugador->velX -= 0.1  ;
 					break;
+					
 			case Qt::Key_Right:
 					bolaJugador->velX += 0.1  ;
 					break;														
@@ -181,7 +182,7 @@ void MainWindow::keyPressEvent( QKeyEvent * evento ) {
 }
 
 
-void MainWindow::dragEnterEvent( QDragEnterEvent *event ) {
+void MainWindow::dragEnterEvent( QDragEnterEvent * event ) {
 		event -> acceptProposedAction();
 }
 
@@ -221,9 +222,9 @@ void MainWindow::dropEvent( QDropEvent * event ) {
 void MainWindow::slotDTablaBolas() {
 
 		if ( dTablaBolas == NULL )
-			dTablaBolas = new DTablaBolas(bolas);
+			dTablaBolas = new DTablaBolas( bolas );
 
-		dTablaBolas->show();
+		dTablaBolas -> show();
 }
 
 
@@ -232,7 +233,7 @@ void MainWindow::slotDControlBolas() {
 		if ( dControlBolas == NULL )
 			dControlBolas = new DControlBolas(bolas);
 
-		dControlBolas->show();
+		dControlBolas -> show();
 
 }
 
@@ -242,7 +243,7 @@ void MainWindow::slotDPosicionBolas() {
 		if ( dPosicionBolas == NULL )
 			dPosicionBolas = new DPosicionBolas(bolas);
 
-		dPosicionBolas->show();
+		dPosicionBolas -> show();
 }
 
 
@@ -251,7 +252,7 @@ void MainWindow::slotDTablaChoques() {
 		if ( dTablaChoques == NULL )
 			dTablaChoques = new DTablaChoques(bolas);
 
-		dTablaChoques->show();
+		dTablaChoques -> show();
 }
 
 
@@ -270,13 +271,13 @@ void MainWindow::slotBolas(){
 		QAction * accCulpable;
 		accCulpable = qobject_cast<QAction *> (culpable);
 	  
-		int i = accCulpable->data().toInt();
+		int i = accCulpable -> data().toInt();
 	  
-		PanelPosicionesChoques *p;
-	  	Bola *bola = bolas.at(i);
-	  	p = new 	PanelPosicionesChoques(bola,-1 ); // -1 to disable ball filtering
+		PanelPosicionesChoques * p;
+	  	Bola * bola = bolas.at(i);
+	  	p = new PanelPosicionesChoques(bola,-1 ); // -1 to disable ball filtering
 		
-		p->show();
+		p -> show();
 	
 }
 

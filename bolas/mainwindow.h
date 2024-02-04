@@ -17,57 +17,49 @@
 #include "dtablachoques.h"
 #include "panelposicioneschoques.h"
 
-class MainWindow : public QMainWindow{
+
+class MainWindow : public QMainWindow {
 Q_OBJECT
 
-public:
-	MainWindow(QWidget *parent =NULL);
+	public:
+		MainWindow(QWidget *parent =NULL);
+		
+		static const int NUMBOLAS=10;
+		Bola * bolaJugador;
+		QVector<Bola*> bolas;
 
-	QAction *actionDTablaBolas;	
-	QAction *actionDControlBolas;
-	QAction *actionDPosicionBolas;
-	QAction *actionDTablaChoques;
-	
-	QAction *actionTemp;
+		QAction *actionDTablaBolas;	
+		QAction *actionDControlBolas;
+		QAction *actionDPosicionBolas;
+		QAction *actionDTablaChoques;
+		QAction *actionTemp;
 
-	QVector<QAction * > accionesBolas;
-	
-	void paintEvent(QPaintEvent * evento);
-void keyPressEvent(QKeyEvent * evento) ;
-	void dragEnterEvent(QDragEnterEvent *event);
-	void dropEvent(QDropEvent * event);
-	
-	
-	Bola * bolaJugador;
-	
-	QVector<Bola*> bolas;
-	
-	DTablaBolas * dTablaBolas;
-	DControlBolas * dControlBolas;
-	DPosicionBolas * dPosicionBolas;
-	DTablaChoques * dTablaChoques;
-	
+		QVector<QAction * > accionesBolas;	
+		
+		DTablaBolas * dTablaBolas;
+		DControlBolas * dControlBolas;
+		DPosicionBolas * dPosicionBolas;
+		DTablaChoques * dTablaChoques;
+		
+		void crearBolas();
+		void crearActions();
+		void crearMenus();
+		
+		void paintEvent(QPaintEvent * evento);
+		void keyPressEvent(QKeyEvent * evento) ;
+		void dragEnterEvent(QDragEnterEvent *event);
+		void dropEvent(QDropEvent * event);
 
 
-	static const int NUMBOLAS=10;
-	void crearBolas();
-	void crearActions();
-	void crearMenus();	
-	
-	
-	
-	
-public slots:	
-	void slotDTablaBolas();
-	void slotDControlBolas();
-	void slotDPosicionBolas();
-	void slotDTablaChoques();
-	void slotTemp();
-	void slotBolas();
-	void slotTemporizador();
+	public slots:	
+		void slotDTablaBolas();
+		void slotDControlBolas();
+		void slotDPosicionBolas();
+		void slotDTablaChoques();
+		void slotTemp();
+		void slotBolas();
+		void slotTemporizador();
 
 };
-
-
 
 #endif

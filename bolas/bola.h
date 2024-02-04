@@ -5,8 +5,8 @@
 #include <QColor>
 #include <QImage>
 
-/* para ahorrar ficheros, hacemos aquí la clase Choque*/
 
+/* para ahorrar ficheros, hacemos aquí la clase Choque*/
 class Choque {
 public:
 	float x,y;
@@ -15,35 +15,36 @@ public:
 
 
 class Bola {
-public:
-	Bola();
-	
-	float posX,posY;
-	float velY,velX;
-	float anchuraJuego,alturaJuego;
-	
-	QVector <int> choques;
-	QVector <Choque> posicionesChoques;
-	int id;
-	
-	QImage imagen;
-	bool esImagen;
-	
-	bool especial;
-	int vidas;
-	QString nombre;
-	
-		static const int diametro=50;
-	
-	void anyadirChoque(int iOtra);
-	
-	QColor color;
-	float distancia(Bola* otra);
-	void mover(int,int);
-	void pintar(QPainter &);
-	bool choca(Bola *);
-	void establecerImagen();
-	void establecerImagen(QString ruta);
+
+	public:
+		Bola();
+		
+		float posX, posY;
+		float velY, velX;
+		static const int diametro = 50;
+		QColor color;
+		int vidas;
+		QString nombre;
+		
+		QVector <int> choques;
+		QVector <Choque> posicionesChoques;
+		int id;
+		
+		QImage imagen;
+		bool esImagen;
+		
+		bool especial;
+		
+		float anchuraJuego,alturaJuego;
+		
+		void anyadirChoque(int iOtra);
+		
+		float distancia(Bola* otra);
+		void mover(int,int);
+		void pintar(QPainter &);
+		bool choca(Bola *);
+		void establecerImagen();
+		void establecerImagen(QString ruta);
 };
 
 #endif
