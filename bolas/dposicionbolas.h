@@ -11,11 +11,11 @@
 class DPosicionBolas : public QDialog, public Ui::DPosicionBolas {
 Q_OBJECT
 
-public:
-	DPosicionBolas(QVector<Bola*>,QWidget *parent = NULL);
+	public:
+		DPosicionBolas(QVector<Bola*>,QWidget *parent = NULL);
 
-public slots:
-	void slotEjemplo();
+	public slots:
+		void slotEjemplo();
 
 };
 

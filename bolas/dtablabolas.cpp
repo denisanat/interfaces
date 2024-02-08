@@ -6,8 +6,7 @@ DTablaBolas::DTablaBolas(QVector<Bola*> bPasadas, QWidget *parent) : QDialog( pa
 		setupUi(this);
 
 		modelo = new ModeloTabla();
-		
-		modelo -> bolas = bPasadas;
+			modelo -> bolas = bPasadas;
 
 		vista -> setModel( modelo );
 
@@ -33,7 +32,7 @@ Qt::ItemFlags ModeloTabla::flags( const QModelIndex &index ) const {
 
 		return Qt::ItemIsEditable | QAbstractTableModel::flags( index );
 }
-
+	
 
 
 
@@ -49,19 +48,19 @@ QVariant ModeloTabla::data( const QModelIndex &index, int role ) const {
 				return QVariant();
 						
 		float valor;
-		  
+		
 		switch ( columna ) {
 			case 0:
-					valor = bolas.at(fila)->posX;
+					valor = bolas.at(fila) -> posX;
 					break;
 			case 1:
-					valor = bolas.at(fila)->posY;
+					valor = bolas.at(fila) -> posY;
 					break;
 			case 2:
-					valor = bolas.at(fila)->velX;
+					valor = bolas.at(fila) -> velX;
 					break;
 			case 3:
-					valor = bolas.at(fila)->velY;
+					valor = bolas.at(fila) -> velY;
 					break;
 			};
 								
@@ -86,7 +85,7 @@ void ModeloTabla::actualiza() {
 }
 
 
-QVariant ModeloTabla::headerData(int section, Qt::Orientation orientation, int role ) const {
+QVariant ModeloTabla::headerData( int section, Qt::Orientation orientation, int role ) const {
 
 		QStringList lista = { "PosX", "PosY", "VelX", "VelY" };
 

@@ -8,10 +8,11 @@
 
 /* para ahorrar ficheros, hacemos aquí la clase Choque*/
 class Choque {
-public:
-	float x,y;
-	int iOtraBola;// pq no se eliminan ni insertan bolas
-};
+
+	public:
+		float x,y;
+		int iOtraBola;// pq no se eliminan ni insertan bolas
+	};
 
 
 class Bola {

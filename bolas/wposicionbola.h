@@ -11,11 +11,11 @@
 class WPosicionBola : public QWidget, public Ui::WPosicionBola {
 Q_OBJECT
 
-public:
-	WPosicionBola(Bola*,QWidget *parent = NULL);
+	public:
+		WPosicionBola(Bola*,QWidget *parent = NULL);
 
-public slots:
-	void slotEjemplo();
+	public slots:
+		void slotEjemplo();
 
 };
 

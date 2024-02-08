@@ -6,12 +6,11 @@
 WPosicionBola::WPosicionBola(Bola * bPasada, QWidget *parent): QWidget(parent){
 		setupUi(this);
 
-		PanelPosicionBola * pPB = new PanelPosicionBola(bPasada);
+		PanelPosicionBola * pPB = new PanelPosicionBola( bPasada );
 		QHBoxLayout * ly = new QHBoxLayout();
-		ly->addWidget(pPB);
+		ly->addWidget( pPB );
 
-		fPanel->setLayout(ly);
-		
+		fPanel->setLayout( ly );
 }
 
 
