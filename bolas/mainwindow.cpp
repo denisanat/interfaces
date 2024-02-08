@@ -90,7 +90,7 @@ void MainWindow::crearMenus() {
 
 void MainWindow::crearBolas(){
 
-		QStringList nombres = { "heejin", "hyunjin", "haseul", "yeojin", "vivi", "gowon", "hyejoo" };
+		QStringList nombres = { "primera", "segunda", "tercera", "cuarta", "quinta", "sexta", "séptima", "octava", "novena", "décima" };
 
 		for ( int i = 0 ; i < NUMBOLAS ; i++ ) {
 	   		Bola * nueva = new Bola();
