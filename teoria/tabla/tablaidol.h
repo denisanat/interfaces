@@ -26,7 +26,7 @@ Q_OBJECT
 		ModeloTabla * modelo;
 		QVector<Idol> idols;
 		
-		void crearIdols();
+		void crearIdols( QString nombre, QString grupo, int edad, QColor color );
 
 };
 

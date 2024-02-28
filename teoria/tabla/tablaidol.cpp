@@ -10,7 +10,9 @@
 TablaIdol::TablaIdol(QWidget *parent): QDialog(parent){
 		setupUi(this);
 		
-		crearIdols();
+		crearIdols( "heejin", "loona", 24, QColor( 200 , 160 , 160 ));
+		crearIdols( "nayeon", "twice", 26, QColor( 250 , 200 , 200 ));
+		crearIdols( "gowon", "loona", 23, QColor( 230 , 245 , 250 ));
 
 		modelo = new ModeloTabla();
 			modelo -> idols = idols;
@@ -19,15 +21,16 @@ TablaIdol::TablaIdol(QWidget *parent): QDialog(parent){
 }
 
 
-void TablaIdol::crearIdols() {
+void TablaIdol::crearIdols( QString nombre, QString grupo, int edad, QColor color ) {
 		
 		Idol idol;
-			idol.nombre = "heejin";
-			idol.grupo = "loona";
-			idol.edad = 24;
-			idol.color = QColor( 120, 200, 0 );
+			idol.nombre = nombre;
+			idol.grupo = grupo;
+			idol.edad = edad;
+			idol.color = color;
 		
 		idols.append( idol );
+		
 }
 
 
